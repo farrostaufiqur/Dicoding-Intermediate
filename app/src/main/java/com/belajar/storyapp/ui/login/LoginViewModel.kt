@@ -42,14 +42,16 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
                     val userId = loginResult.userId
                     val email = body.email
 
+                    val bearerToken = "bearer $token"
+
                     Log.d(TAG, "Token: $token, Name: $name, Email: $email, UserId: $userId")
 
-                    saveUserToken(token)
+                    saveUserToken(bearerToken)
                     saveUserId(userId)
                     saveUserName(name)
                     saveUserEmail(email)
 
-                    _isToken.value = token
+                    _isToken.value = bearerToken
                 } else {
                     _isError.value = true
                 }
