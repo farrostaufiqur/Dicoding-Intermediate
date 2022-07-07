@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.story.detail.DetailStoryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/story_detail_img"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:background="@drawable/rect"
+            android:contentDescription="@string/img_story_desc"
+            android:transitionName="image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/story_detail_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rect"
+            android:padding="4dp"
+            android:transitionName="name"
+            app:layout_constraintEnd_toEndOf="@+id/story_detail_img"
+            app:layout_constraintStart_toStartOf="@+id/story_detail_img"
+            app:layout_constraintTop_toBottomOf="@+id/story_detail_img"
+            tools:text="@tools:sample/full_names" />
+
+
+        <TextView
+            android:id="@+id/story_detail_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rect"
+            android:padding="4dp"
+            android:transitionName="desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/story_detail_img"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/story_detail_img"
+            app:layout_constraintTop_toBottomOf="@+id/story_detail_location"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/story_detail_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/rect"
+            android:transitionName="loc"
+            android:padding="4dp"
+            tools:text="@tools:sample/cities"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/story_detail_name"
+            app:layout_constraintTop_toBottomOf="@+id/story_detail_name" />
+
+        <TextView
+            android:id="@+id/story_detail_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/rect"
+            android:padding="4dp"
+            android:transitionName="time"
+            android:gravity="center"
+            tools:text="@tools:sample/date/ddmmyy"
+            app:layout_constraintBottom_toBottomOf="@+id/story_detail_location"
+            app:layout_constraintEnd_toEndOf="@+id/story_detail_name"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/story_detail_location" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

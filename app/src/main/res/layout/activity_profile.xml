@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/tv_profile_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_baseline_person_24"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/dot"
+        app:layout_constraintTop_toTopOf="@+id/dot"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@tools:sample/full_names"
+        android:text="@string/name"/>
+
+    <TextView
+        android:id="@+id/tv_profile_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/dot2"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_profile_name"
+        app:layout_constraintTop_toTopOf="@+id/dot2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="example@email.com"
+        android:text="@string/email"/>
+
+    <TextView
+        android:id="@+id/tv_profile_userid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/dot3"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_profile_email"
+        app:layout_constraintTop_toTopOf="@+id/dot3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="0123456789"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/profile_title_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_img" />
+
+    <TextView
+        android:id="@+id/profile_title_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/email"
+        app:layout_constraintEnd_toEndOf="@+id/profile_title_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/profile_title_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_name" />
+
+    <TextView
+        android:id="@+id/profile_title_userid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/user_id"
+        app:layout_constraintEnd_toEndOf="@+id/profile_title_email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/profile_title_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_email" />
+
+    <TextView
+        android:id="@+id/dot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/dot"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_title_name"
+        app:layout_constraintStart_toEndOf="@+id/profile_title_name"
+        app:layout_constraintTop_toTopOf="@+id/profile_title_name"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dot2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dot"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_title_email"
+        app:layout_constraintEnd_toEndOf="@+id/dot"
+        app:layout_constraintStart_toStartOf="@+id/dot"
+        app:layout_constraintTop_toTopOf="@+id/profile_title_email" />
+
+    <TextView
+        android:id="@+id/dot3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dot"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_title_userid"
+        app:layout_constraintEnd_toEndOf="@+id/dot2"
+        app:layout_constraintStart_toStartOf="@+id/dot2"
+        app:layout_constraintTop_toTopOf="@+id/profile_title_userid" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center|start"
+        android:text="@string/logout"
+        app:icon="@drawable/ic_baseline_exit_to_app_24"
+        app:layout_constraintEnd_toEndOf="@+id/tv_profile_userid"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/profile_title_userid"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_userid" />
+
+    <Button
+        android:id="@+id/btn_change_theme"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center|start"
+        android:text="@string/change_theme"
+        app:icon="@drawable/ic_baseline_nights_stay_24"
+        app:layout_constraintEnd_toEndOf="@+id/btn_logout"
+        app:layout_constraintStart_toStartOf="@+id/btn_logout"
+        app:layout_constraintTop_toBottomOf="@+id/btn_logout" />
+
+    <Button
+        android:id="@+id/btn_change_lang"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center|start"
+        android:text="@string/change_language"
+        app:icon="@drawable/ic_baseline_nights_stay_24"
+        app:layout_constraintEnd_toEndOf="@+id/btn_logout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_logout"
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_theme" />
+</androidx.constraintlayout.widget.ConstraintLayout>

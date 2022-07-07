@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">StoryApp</string>
+
+    <string name="welcome">Welcome!</string>
+
+    <string name="login_here">Login here</string>
+    <string name="login">Login</string>
+    <string name="login_desc">Please login first to enjoy full experience of this app</string>
+    <string name="login_success">Login Success</string>
+    <string name="login_failed">Login Failed</string>
+
+    <string name="register_here">Register here</string>
+    <string name="register">Register</string>
+    <string name="register_desc">Register your new account</string>
+    <string name="register_success">Register Success</string>
+    <string name="register_failed">Register Failed</string>
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="user_id">User Id</string>
+
+    <string name="empty_name">Name is empty</string>
+    <string name="not_enough_name">Name must be more than 6 character</string>
+    <string name="empty_email">Email is empty</string>
+    <string name="invalid_email">The email is invalid</string>
+    <string name="empty_password">Password is empty</string>
+    <string name="not_enough_password">Password must be more than 6 character</string>
+    <string name="incorrect_auth">Email or password incorrect</string>
+
+    <string name="dont_have_account">Don\'t have account ?</string>
+    <string name="have_account">Already have account ?</string>
+
+    <string name="error">Oops something when wrong</string>
+    <string name="unknown_state">Unknown State</string>
+    <string name="not_permitted">Permission not granted</string>
+
+    <string name="hello_user">Hello, %1$s!</string>
+
+    <string name="upload_success">Upload success!</string>
+    <string name="upload_failed">Upload failed!</string>
+    <string name="empty">No Data</string>
+
+    <string name="profile">Profile</string>
+    <string name="information">Information</string>
+    <string name="setting">Setting</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="change_language">Change System Language</string>
+    <string name="logout">Logout</string>
+
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="new_story">Add New Story</string>
+    <string name="detail_story">Detail Story</string>
+    <string name="choose_a_pict">Choose a picture</string>
+    <string name="pick_an_image">Pick an image</string>
+    <string name="upload_story">Upload Story</string>
+
+    <string name="upload_info">Upload Info</string>
+    <string name="story_desc">Story Description</string>
+    <string name="empty_desc">Description can\'t empty</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis nunc nec sodales consectetur. Sed eget auctor quam. Nulla facilisi. Etiam vitae nulla sed arcu varius tempus. Nullam ac diam ante. Donec condimentum cursus accumsan. Ut sit amet felis rutrum, posuere lorem sed</string>
+    <string name="dot">:</string>
+
+    <string name="fab_desc">button to make new story</string>
+    <string name="capture_desc">Button to capture your desire image</string>
+    <string name="flip_desc">Button to flip the camera</string>
+    <string name="img_story_desc">Image of story</string>
+    <string name="splash_screen_desc">Splash Screen</string>
+    <string name="image_upload_desc">Image that you want to upload</string>
+    <string name="item_image_desc">Item story image</string>
+
+    <string name="created">Created</string>
+    <string name="at">at</string>
+    <string name="retry">Try again</string>
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.story.upload.UploadStoryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/tv_story_image"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:background="@drawable/rect"
+            android:src="@drawable/ic_baseline_photo_camera_24"
+            android:padding="4dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_gallery"
+            app:layout_constraintStart_toStartOf="@+id/btn_camera"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic"
+            android:contentDescription="@string/image_upload_desc" />
+
+        <Button
+            android:id="@+id/btn_camera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:background="@drawable/rect"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/camera"
+            app:icon="@drawable/ic_baseline_photo_camera_24"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_story_image" />
+
+        <Button
+            android:id="@+id/btn_gallery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:background="@drawable/rect"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/gallery"
+            app:icon="@drawable/ic_baseline_insert_photo_24"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_camera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/btn_camera" />
+
+        <EditText
+            android:id="@+id/edt_story_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rect"
+            android:gravity="top|start"
+            android:hint="@string/story_desc"
+            android:inputType="textMultiLine"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_gallery"
+            app:layout_constraintStart_toStartOf="@+id/btn_camera"
+            app:layout_constraintTop_toBottomOf="@+id/btn_gallery"
+            tools:text="@tools:sample/lorem/random"
+            android:autofillHints="Enter your story here" />
+
+        <Button
+            android:id="@+id/btn_story_upload"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rect"
+            android:text="@string/upload_story"
+            app:icon="@drawable/ic_baseline_cloud_upload_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/edt_story_desc"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edt_story_desc"
+            app:layout_constraintTop_toBottomOf="@+id/edt_story_desc" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+        <ProgressBar
+            android:id="@+id/pbUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="invisible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

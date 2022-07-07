@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/login_title"
+        android:alpha="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/welcome"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0"
+        android:text="@string/login_desc"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_title"
+        app:layout_constraintTop_toBottomOf="@+id/login_title" />
+
+    <TextView
+        android:id="@+id/email_title"
+        android:alpha="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:text="@string/email"
+        app:layout_constraintEnd_toEndOf="@+id/login_desc"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_desc"
+        app:layout_constraintTop_toBottomOf="@+id/login_desc" />
+
+    <com.belajar.storyapp.customView.EmailEditText
+        android:id="@+id/edt_login_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:alpha="0"
+        android:background="@drawable/rect"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/login_desc"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_desc"
+        app:layout_constraintTop_toBottomOf="@+id/email_title" />
+
+    <TextView
+        android:id="@+id/password_title"
+        android:alpha="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:text="@string/password"
+        app:layout_constraintEnd_toEndOf="@+id/email_title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/email_title"
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_email" />
+
+    <com.belajar.storyapp.customView.PasswordEditText
+        android:id="@+id/edt_login_password"
+        android:alpha="0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect"
+        android:padding="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/edt_login_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_login_email"
+        app:layout_constraintTop_toBottomOf="@+id/password_title" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:alpha="0"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/login"
+        android:background="@drawable/rect"
+        app:icon="@drawable/ic_baseline_exit_to_app_24"
+        app:layout_constraintEnd_toEndOf="@+id/edt_login_password"
+        app:layout_constraintStart_toStartOf="@+id/edt_login_password"
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_password" />
+
+    <LinearLayout
+        android:id="@+id/regist"
+        android:alpha="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login">
+
+        <TextView
+            android:id="@+id/dont_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/dont_have_account" />
+
+        <TextView
+            android:id="@+id/register_here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_here" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
