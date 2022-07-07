@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.belajar.storyapp.R
 import com.belajar.storyapp.databinding.ActivityMainBinding
-import com.belajar.storyapp.ui.login.LoginActivity
 import com.belajar.storyapp.ui.main.adapter.LoadingStateAdapter
 import com.belajar.storyapp.ui.main.adapter.StoryListAdapter
 import com.belajar.storyapp.ui.profile.ProfileActivity
@@ -42,21 +41,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_TOKEN2, token)
             startActivity(intent)
         }
-        /*
-        viewModel.isLoading.observe(this@MainActivity) {
-            isLoading(it)
-        }
-
-        lifecycleScope.launchWhenResumed {
-            if (main.isActive) main.cancel()
-            main = launch {
-                viewModel.getAllStories(token)
-                viewModel.story.observe(this@MainActivity) {
-                    setStoryData(it)
-                }
-            }
-        }
-        */
     }
 
     private fun setupRecyclerView() {
@@ -76,31 +60,12 @@ class MainActivity : AppCompatActivity() {
                 adapter.retry()
             }
         )
-        if(token!=null){
-            viewModel.getStory(token!!).observe(this) {
-                adapter.submitData(lifecycle, it)
-            }
+        viewModel.getStory(token!!).observe(this) {
+            adapter.submitData(lifecycle, it)
         }
 
     }
 
-    /*
-    private fun setStoryData(listStory: List<StoriesResponse.Story>) {
-        val list = ArrayList<StoriesResponse.Story>()
-        for (storyId in listStory) {
-            val story = StoriesResponse.Story(
-                storyId.id,
-                storyId.name,
-                storyId.description,
-                storyId.photoUrl,
-                storyId.createdAt
-            )
-            list.add(story)
-        }
-        val storyAdapter = StoryListAdapter(list)
-        binding?.rvStory?.adapter = storyAdapter
-    }
-    */
     private fun isLoading(loading: Boolean) {
         binding?.apply {
             if (loading) {
