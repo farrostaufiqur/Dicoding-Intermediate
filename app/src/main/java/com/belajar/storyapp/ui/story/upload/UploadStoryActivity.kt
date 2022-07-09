@@ -33,7 +33,7 @@ class UploadStoryActivity : AppCompatActivity() {
     private var _binding: ActivityUploadStoryBinding? = null
     private val binding get() = _binding
     private val viewModel: UploadStoryViewModel by viewModels()
-    private var token: String? = null
+    private lateinit var token: String
     private var image: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class UploadStoryActivity : AppCompatActivity() {
             )
         }
 
-        token = intent.getStringExtra(EXTRA_TOKEN2)
+        token = intent.getStringExtra(EXTRA_TOKEN2).toString()
 
         binding?.apply {
             btnCamera.setOnClickListener { startCameraX() }

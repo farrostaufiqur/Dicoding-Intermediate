@@ -17,9 +17,9 @@ class StoryPagingSource(private var token: String, private val apiService: ApiSe
             val responseData = apiService.getAllStories(token, page, params.loadSize)
 
             LoadResult.Page(
-                data = responseData,
+                data = responseData.listStory,
                 prevKey = if (page == 1) null else page - 1,
-                nextKey = if (responseData.isEmpty()) null else page + 1
+                nextKey = if (responseData.listStory.isEmpty()) null else page + 1
             )
         } catch (exception: Exception) {
             return LoadResult.Error(exception)

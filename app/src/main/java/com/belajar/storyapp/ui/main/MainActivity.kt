@@ -2,11 +2,14 @@ package com.belajar.storyapp.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.belajar.storyapp.R
@@ -17,10 +20,13 @@ import com.belajar.storyapp.ui.profile.ProfileActivity
 import com.belajar.storyapp.ui.story.upload.UploadStoryActivity
 import com.belajar.storyapp.ui.story.upload.UploadStoryActivity.Companion.EXTRA_TOKEN2
 import com.belajar.storyapp.util.ViewModelFactory
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding
+    private var main: Job = Job()
     private val viewModel: MainViewModel by viewModels {
         ViewModelFactory(this)
     }
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         isLoading(false)
 
         token = intent.getStringExtra(EXTRA_TOKEN)
+
         setupRecyclerView()
         getData()
 
@@ -60,10 +67,9 @@ class MainActivity : AppCompatActivity() {
                 adapter.retry()
             }
         )
-        viewModel.getStory(token!!).observe(this) {
+        viewModel.getStory(token.toString()).observe(this) {
             adapter.submitData(lifecycle, it)
         }
-
     }
 
     private fun isLoading(loading: Boolean) {
@@ -101,5 +107,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_TOKEN = "token_extra"
+        const val TAG = "MainActivity"
+        const val KEY = "user_token"
     }
 }
