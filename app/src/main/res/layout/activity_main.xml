@@ -6,27 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerLoading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include layout="@layout/item_story_shimmer" />
-            <include layout="@layout/item_story_shimmer" />
-            <include layout="@layout/item_story_shimmer" />
-            <include layout="@layout/item_story_shimmer" />
-            <include layout="@layout/item_story_shimmer" />
-            <include layout="@layout/item_story_shimmer" />
-        </LinearLayout>
-
-
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -58,6 +37,6 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/fab_desc" />
+        android:contentDescription="@string/fab_desc"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

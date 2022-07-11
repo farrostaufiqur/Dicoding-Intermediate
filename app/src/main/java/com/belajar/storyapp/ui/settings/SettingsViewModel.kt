@@ -1,4 +1,4 @@
-package com.belajar.storyapp.ui.profile
+package com.belajar.storyapp.ui.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -7,10 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.belajar.storyapp.util.AppPreferences
 import kotlinx.coroutines.launch
 
-class ProfileViewModel (private val pref: AppPreferences) : ViewModel() {
-    fun getUserId(): LiveData<String?> = pref.getUserId().asLiveData()
-    fun getUserName(): LiveData<String?> = pref.getUserName().asLiveData()
-    fun getUserEmail(): LiveData<String?> = pref.getUserEmail().asLiveData()
+class SettingsViewModel (private val pref: AppPreferences) : ViewModel() {
     fun getIsDarkMode(): LiveData<Boolean?> = pref.getIsDarkMode().asLiveData()
 
     fun saveIsDarkMode(isDark: Boolean) {

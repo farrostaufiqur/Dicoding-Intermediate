@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
                                     if (it != null){
                                         showToast(getString(string.login_success))
                                         Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
-                                            intent.putExtra(MainActivity.EXTRA_TOKEN, it)
+                                            intent.putExtra(MainActivity.EXTRA_TOKEN_MAIN, it)
                                             startActivity(intent)
                                             finish()
                                         }
@@ -148,6 +148,10 @@ class LoginActivity : AppCompatActivity() {
     private fun showToast(text: String) {
         Toast.makeText(this@LoginActivity,
             text, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 
     companion object{

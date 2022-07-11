@@ -23,24 +23,6 @@ class AppPreferences private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    fun getUserId(): Flow<String?>{
-        return dataStore.data.map {
-            it[USER_ID]
-        }
-    }
-
-    fun getUserName(): Flow<String?>{
-        return dataStore.data.map {
-            it[USER_NAME]
-        }
-    }
-
-    fun getUserEmail(): Flow<String?>{
-        return dataStore.data.map {
-            it[USER_EMAIL]
-        }
-    }
-
     suspend fun saveIsDarkMode(isDark: Boolean) {
         dataStore.edit {
             it[IS_DARK_MODE] = isDark
@@ -53,24 +35,6 @@ class AppPreferences private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    suspend fun saveUserId(id: String) {
-        dataStore.edit {
-            it[USER_ID] = id
-        }
-    }
-
-    suspend fun saveUserName(name: String) {
-        dataStore.edit {
-            it[USER_NAME] = name
-        }
-    }
-
-    suspend fun saveUserEmail(email: String) {
-        dataStore.edit {
-            it[USER_EMAIL] = email
-        }
-    }
-
     suspend fun clearUserData() {
         dataStore.edit {
             it.clear()
@@ -80,9 +44,6 @@ class AppPreferences private constructor(private val dataStore: DataStore<Prefer
     companion object {
         private val IS_DARK_MODE = booleanPreferencesKey("app.is.dark.mode")
         private val USER_TOKEN = stringPreferencesKey("app.user.token")
-        private val USER_ID = stringPreferencesKey("app.user.id")
-        private val USER_NAME = stringPreferencesKey("app.user.name")
-        private val USER_EMAIL = stringPreferencesKey("app.email.email")
 
         @Volatile
         private var INSTANCE: AppPreferences? = null

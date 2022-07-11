@@ -1,8 +1,5 @@
 package com.belajar.storyapp.const
 
-import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.stringPreferencesKey
-
 object Constant {
 
     const val SPLASH_LOADING = 1500L

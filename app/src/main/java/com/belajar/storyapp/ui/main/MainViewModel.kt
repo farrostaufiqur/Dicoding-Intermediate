@@ -9,7 +9,6 @@ import com.belajar.storyapp.data.network.response.StoriesResponse
 import com.belajar.storyapp.data.paging.StoryRepository
 
 class MainViewModel constructor(private val storyRepository: StoryRepository) : ViewModel() {
-
     fun getStory(token: String): LiveData<PagingData<StoriesResponse.Story>> =
         storyRepository.getStory(token).cachedIn(viewModelScope)
 }

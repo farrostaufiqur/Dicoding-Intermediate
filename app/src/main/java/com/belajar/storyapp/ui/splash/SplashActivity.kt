@@ -15,7 +15,7 @@ import com.belajar.storyapp.R
 import com.belajar.storyapp.const.Constant.SPLASH_LOADING
 import com.belajar.storyapp.ui.login.LoginActivity
 import com.belajar.storyapp.ui.main.MainActivity
-import com.belajar.storyapp.ui.main.MainActivity.Companion.EXTRA_TOKEN
+import com.belajar.storyapp.ui.main.MainActivity.Companion.EXTRA_TOKEN_MAIN
 import com.belajar.storyapp.util.AppPreferences
 import com.belajar.storyapp.util.PreferencesModelFactory
 
@@ -58,7 +58,7 @@ class SplashActivity : AppCompatActivity() {
                     }
                 } else {
                     Intent(this@SplashActivity, MainActivity::class.java).also { intent ->
-                        intent.putExtra(EXTRA_TOKEN, token)
+                        intent.putExtra(EXTRA_TOKEN_MAIN, token)
                         startActivity(intent)
                         finish()
                     }

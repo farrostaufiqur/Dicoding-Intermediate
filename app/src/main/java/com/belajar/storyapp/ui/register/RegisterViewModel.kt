@@ -48,6 +48,7 @@ class RegisterViewModel: ViewModel() {
                 val message = "onFailure: ${t.message.toString()}"
                 _isError.value = true
                 Log.e(TAG, message)
+                _isLoading.value = false
             }
         })
     }

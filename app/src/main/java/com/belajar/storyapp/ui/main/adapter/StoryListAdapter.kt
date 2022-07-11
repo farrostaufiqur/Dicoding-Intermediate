@@ -38,7 +38,7 @@ class StoryListAdapter : PagingDataAdapter<StoriesResponse.Story, StoryListAdapt
             binding.apply {
                 val lon = story.lon?.toBigDecimal()?.toPlainString()
                 val lat = story.lat?.toBigDecimal()?.toPlainString()
-                val location = "$lon, $lat"
+                val location = "Lon: $lon, Lat: $lat"
 
                 itemStoryName.text = story.name
                 itemStoryLocation.text = location

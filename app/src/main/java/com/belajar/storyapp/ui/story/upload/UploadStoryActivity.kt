@@ -4,8 +4,10 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -19,12 +21,16 @@ import com.belajar.storyapp.const.Constant.REQ_CODE_PERMIT
 import com.belajar.storyapp.databinding.ActivityUploadStoryBinding
 import com.belajar.storyapp.ui.camera.CameraActivity
 import com.belajar.storyapp.ui.main.MainActivity
+import com.belajar.storyapp.ui.main.MainActivity.Companion.EXTRA_TOKEN_MAIN
 import com.belajar.storyapp.util.reduceFileImage
 import com.belajar.storyapp.util.rotateBitmap
 import com.belajar.storyapp.util.uriToFile
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
@@ -32,14 +38,18 @@ import java.io.File
 class UploadStoryActivity : AppCompatActivity() {
     private var _binding: ActivityUploadStoryBinding? = null
     private val binding get() = _binding
+    private var locationProvider: FusedLocationProviderClient? = null
     private val viewModel: UploadStoryViewModel by viewModels()
-    private lateinit var token: String
+    private var token: String? = null
+    private var myLocation: Location? = null
     private var image: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityUploadStoryBinding.inflate(layoutInflater)
         setContentView(_binding?.root)
+
+        locationProvider = LocationServices.getFusedLocationProviderClient(this)
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -49,12 +59,23 @@ class UploadStoryActivity : AppCompatActivity() {
             )
         }
 
-        token = intent.getStringExtra(EXTRA_TOKEN2).toString()
+        viewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+
+        token = intent.getStringExtra(EXTRA_TOKEN_UPLOAD).toString()
 
         binding?.apply {
             btnCamera.setOnClickListener { startCameraX() }
             btnGallery.setOnClickListener { startGallery() }
             btnStoryUpload.setOnClickListener { uploadStory() }
+            addLocation.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    getMyLocation()
+                } else {
+                    myLocation = null
+                }
+            }
         }
     }
 
@@ -140,17 +161,29 @@ class UploadStoryActivity : AppCompatActivity() {
                         file.name,
                         requestImageFile
                     )
-                    viewModel.isLoading.observe(this@UploadStoryActivity){
-                        showLoading(it)
+                    var lat: RequestBody? = null
+                    var lon: RequestBody? = null
+
+                    if (myLocation != null) {
+                        lat = myLocation?.latitude.toString().toRequestBody("text/plain".toMediaType())
+                        lon = myLocation?.longitude.toString().toRequestBody("text/plain".toMediaType())
+                        Log.e(TAG, "Lon: $lon, Lat: $lat")
+
                     }
-                    viewModel.postStories(token, imageMultipart, descMediaTyped)
+
+                    viewModel.postStories(token!!, imageMultipart, descMediaTyped, lat, lon)
                     viewModel.isUploaded.observe(this@UploadStoryActivity){
-                        if (it == true){
+                        if (it == true) {
                             val message = viewModel.responseMessage.toString()
                             Toast.makeText(this@UploadStoryActivity, message, Toast.LENGTH_SHORT)
-                            val intent = Intent(this@UploadStoryActivity, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                            Intent(
+                                this@UploadStoryActivity,
+                                MainActivity::class.java
+                            ).also { intent ->
+                                intent.putExtra(EXTRA_TOKEN_MAIN, token)
+                                startActivity(intent)
+                                finish()
+                            }
                         }
                     }
                     viewModel.isError.observe(this@UploadStoryActivity){
@@ -163,6 +196,34 @@ class UploadStoryActivity : AppCompatActivity() {
             }
         }else{
             Toast.makeText(this@UploadStoryActivity, getString(R.string.choose_a_pict), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                getMyLocation()
+            }
+        }
+
+    private fun getMyLocation() {
+        if (ContextCompat.checkSelfPermission(
+                this.applicationContext,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            locationProvider?.lastLocation?.addOnSuccessListener { location ->
+                if (location != null) {
+                    myLocation = location
+                    Log.e(TAG, "Lon: ${location.longitude}, Lat: ${location.latitude}, Acc: ${location.accuracy}")
+                } else {
+                    Toast.makeText(this, getString(R.string.not_permitted), Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
         }
     }
 
@@ -179,7 +240,8 @@ class UploadStoryActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_TOKEN2 = "token_extra"
+        const val TAG = "UploadActivity"
+        const val EXTRA_TOKEN_UPLOAD = "token in upload activity"
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 }

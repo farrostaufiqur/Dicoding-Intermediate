@@ -3,8 +3,8 @@ package com.belajar.storyapp.ui.story.detail
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.belajar.storyapp.const.Constant
-import com.belajar.storyapp.databinding.ActivityDetailStoryBinding
 import com.belajar.storyapp.data.network.response.StoriesResponse
+import com.belajar.storyapp.databinding.ActivityDetailStoryBinding
 import com.belajar.storyapp.util.timeStamptoString
 import com.bumptech.glide.Glide
 

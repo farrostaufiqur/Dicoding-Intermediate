@@ -26,9 +26,9 @@ class UploadStoryViewModel : ViewModel() {
     private val _isError = MutableLiveData<Boolean>()
     val isError: LiveData<Boolean> = _isError
 
-    fun postStories(token: String, image: MultipartBody.Part, description: RequestBody){
+    fun postStories(token: String, image: MultipartBody.Part, description: RequestBody, lat: RequestBody?, lon: RequestBody?){
         _isLoading.value = true
-        val client= ApiConfig.getApiService().postStories(token, image, description)
+        val client= ApiConfig.getApiService().postStories(token, image, description, lat, lon)
         client.enqueue(object : Callback<StoriesResponse> {
             override fun onResponse(
                 call: Call<StoriesResponse>,

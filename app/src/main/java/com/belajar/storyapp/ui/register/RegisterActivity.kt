@@ -147,6 +147,11 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
+    }
+
     companion object{
         const val TAG = "RegisterActivity"
     }

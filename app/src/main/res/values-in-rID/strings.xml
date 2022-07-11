@@ -65,15 +65,24 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis nunc nec sodales consectetur. Sed eget auctor quam. Nulla facilisi. Etiam vitae nulla sed arcu varius tempus. Nullam ac diam ante. Donec condimentum cursus accumsan. Ut sit amet felis rutrum, posuere lorem sed</string>
     <string name="dot">:</string>
 
-    <string name="fab_desc">Tombol untuk membuat story baru</string>
-    <string name="capture_desc">Tombol untuk mengambil gambar pilihan kamu</string>
-    <string name="flip_desc">Tombol untuk membalikkan kamera</string>
+    <string name="fab_desc">Buat story baru</string>
+    <string name="capture_desc">Ambil gambar</string>
+    <string name="flip_desc">Balikkan kamera</string>
     <string name="img_story_desc">Gambar dari deskripsi cerita</string>
     <string name="splash_screen_desc">Layar percikan</string>
     <string name="image_upload_desc">Gambar yang ingin anda unggah</string>
     <string name="item_image_desc">gambar butir cerita</string>
 
     <string name="created">Dibuat</string>
-    <string name="at">di</string>
+    <string name="at_Coordinate">di Koordinat</string>
     <string name="retry">Ulang lagi</string>
+
+    <string name="maps">Peta</string>
+    <string name="normal_type">Tipe Normal</string>
+    <string name="satellite_type">Tipe Satelite</string>
+    <string name="terrain_type">Tipe Medan</string>
+    <string name="hybrid_type">Tipe Campuran</string>
+
+    <string name="story">Cerita</string>
+    <string name="add_location">Tambahkan lokasi anda?</string>
 </resources>

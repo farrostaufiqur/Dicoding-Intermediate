@@ -64,15 +64,24 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis nunc nec sodales consectetur. Sed eget auctor quam. Nulla facilisi. Etiam vitae nulla sed arcu varius tempus. Nullam ac diam ante. Donec condimentum cursus accumsan. Ut sit amet felis rutrum, posuere lorem sed</string>
     <string name="dot">:</string>
 
-    <string name="fab_desc">button to make new story</string>
-    <string name="capture_desc">Button to capture your desire image</string>
-    <string name="flip_desc">Button to flip the camera</string>
+    <string name="fab_desc">Make new story</string>
+    <string name="capture_desc">Capture image</string>
+    <string name="flip_desc">Flip the camera</string>
     <string name="img_story_desc">Image of story</string>
     <string name="splash_screen_desc">Splash Screen</string>
     <string name="image_upload_desc">Image that you want to upload</string>
     <string name="item_image_desc">Item story image</string>
 
     <string name="created">Created</string>
-    <string name="at">at</string>
+    <string name="at_Coordinate">at Coordinate</string>
     <string name="retry">Try again</string>
+
+    <string name="maps">Maps</string>
+    <string name="normal_type">Normal Type</string>
+    <string name="satellite_type">Satellite Type</string>
+    <string name="terrain_type">Terrain Type</string>
+    <string name="hybrid_type">Hybrid Type</string>
+
+    <string name="story">Story</string>
+    <string name="add_location">Add your location?</string>
 </resources>

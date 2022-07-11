@@ -47,9 +47,6 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
                     Log.d(TAG, "Token: $token, Name: $name, Email: $email, UserId: $userId")
 
                     saveUserToken(bearerToken)
-                    saveUserId(userId)
-                    saveUserName(name)
-                    saveUserEmail(email)
 
                     _isToken.value = bearerToken
                 } else {
@@ -61,6 +58,7 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
                 val message = "onFailure: ${t.message.toString()}"
                 _isError.value = true
                 Log.e(TAG, message)
+                _isLoading.value = false
             }
         })
     }
@@ -68,24 +66,6 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
     fun saveUserToken(token: String){
         viewModelScope.launch {
             pref.saveUserToken(token)
-        }
-    }
-
-    fun saveUserName(name: String){
-        viewModelScope.launch {
-            pref.saveUserName(name)
-        }
-    }
-
-    fun saveUserEmail(email: String){
-        viewModelScope.launch {
-            pref.saveUserEmail(email)
-        }
-    }
-
-    fun saveUserId(id: String){
-        viewModelScope.launch {
-            pref.saveUserId(id)
         }
     }
 
